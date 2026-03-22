@@ -1,10 +1,23 @@
 [
   {
-    "id": 1,
-    "nome": "Amiri Bandana Skel Top Low Sneakers",
-    "categoria": "sneakers",
-    "preco": 370,
-    "antigo": 520,
-    "imagens":"https://via.placeholder.com/150"
+    "nome": "Camisola Azul",
+    "categoria": "Roupa",
+    "preco": 25.99,
+    "antigo": 30.00,
+    "imagens": ["https://via.placeholder.com/150"]
+  },
+  {
+    "nome": "Calças Pretas",
+    "categoria": "Roupa",
+    "preco": 35.50,
+    "antigo": 40.00,
+    "imagens": ["https://via.placeholder.com/150"]
+  },
+  {
+    "nome": "Sapatos Brancos",
+    "categoria": "Calçado",
+    "preco": 45.00,
+    "antigo": 50.00,
+    "imagens": ["https://via.placeholder.com/150"]
   }
 ]
