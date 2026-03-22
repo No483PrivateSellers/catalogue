@@ -1,23 +1,46 @@
 [
   {
-    "nome": "Camisola Azul",
-    "categoria": "Hoodies",
-    "preco": 25.99,
-    "antigo": 30.00,
-    "imagens": ["https://via.placeholder.com/150"]
+    "id": 1,
+    "nome": "Off-White Hoodie",
+    "categoria": "hoodie",
+    "preco": 145,
+    "antigo": 550,
+    "imagens": [
+      "https://via.placeholder.com/300",
+      "https://via.placeholder.com/301"
+    ]
   },
   {
-    "nome": "Calças Pretas",
-    "categoria": "Roupa",
-    "preco": 35.50,
-    "antigo": 40.00,
-    "imagens": ["https://via.placeholder.com/150"]
+    "id": 2,
+    "nome": "Off-White Tshirt",
+    "categoria": "tshirt",
+    "preco": 85,
+    "antigo": 365,
+    "imagens": [
+      "https://via.placeholder.com/300",
+      "https://via.placeholder.com/302"
+    ]
   },
   {
-    "nome": "Sapatos Brancos",
-    "categoria": "Calçado",
-    "preco": 45.00,
-    "antigo": 50.00,
-    "imagens": ["https://via.placeholder.com/150"]
+    "id": 3,
+    "nome": "Nike Sneakers",
+    "categoria": "sapatos",
+    "preco": 120,
+    "antigo": 200,
+    "imagens": [
+      "https://via.placeholder.com/300",
+      "https://via.placeholder.com/303"
+    ]
+  },
+  {
+    "id": 4,
+    "nome": "Adidas Jacket",
+    "categoria": "casaco",
+    "preco": 180,
+    "antigo": 350,
+    "imagens": [
+      "https://via.placeholder.com/300",
+      "https://via.placeholder.com/304"
+    ]
   }
 ]
