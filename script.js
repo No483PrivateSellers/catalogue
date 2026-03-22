@@ -1,45 +1,26 @@
-let produtos = [
-  {
-    id: 1,
-    nome: "Off-White Hoodie",
-    categoria: "hoodie",
-    preco: 145,
-    antigo: 550,
-    imagens: [
-      "https://via.placeholder.com/300",
-      "https://via.placeholder.com/301"
-    ]
-  },
-  {
-    id: 2,
-    nome: "Off-White Tshirt",
-    categoria: "tshirt",
-    preco: 85,
-    antigo: 365,
-    imagens: [
-      "https://via.placeholder.com/300",
-      "https://via.placeholder.com/302"
-    ]
-  }
-];
+// script.js
 
 // 💾 carregar favoritos guardados
 let favoritos = JSON.parse(localStorage.getItem("favoritos")) || [];
-
 let filtroAtual = "all";
+let produtos = [];
+
+// 🚀 Carregar produtos do JSON
 fetch("produtos.json")
   .then(res => res.json())
   .then(data => {
     produtos = data;
-    renderProdutos();
-  });
+    renderProdutos(); // só renderiza depois de carregar
+  })
+  .catch(err => console.error("Erro a carregar produtos:", err));
 
+// Função para renderizar produtos
 function renderProdutos() {
   const container = document.getElementById("products");
+  if (!container) return; // evita erro se o container não existir
   container.innerHTML = "";
 
   let lista = produtos;
-
   if (filtroAtual !== "all") {
     lista = produtos.filter(p => p.categoria === filtroAtual);
   }
@@ -51,9 +32,7 @@ function renderProdutos() {
       <div class="card">
         <div class="fav" onclick="toggleFav(${p.id})">${fav}</div>
         <div class="new">NEW</div>
-
-        <img src="${p.imagens[0]}" onclick="trocarImagem(this, ${p.id})">
-
+        <img src="${p.imagens[0] ? p.imagens[0] : 'https://via.placeholder.com/300'}" onclick="trocarImagem(this, ${p.id})">
         <p>${p.nome}</p>
         <span>€${p.preco}</span>
         <span class="old">PVP €${p.antigo}</span>
@@ -77,10 +56,10 @@ function toggleFav(id) {
 // 📸 SLIDER DE IMAGENS
 function trocarImagem(imgElement, id) {
   const produto = produtos.find(p => p.id === id);
+  if (!produto || !produto.imagens || produto.imagens.length === 0) return;
 
   let atual = produto.imagens.indexOf(imgElement.src);
   let proxima = (atual + 1) % produto.imagens.length;
-
   imgElement.src = produto.imagens[proxima];
 }
 
@@ -91,12 +70,12 @@ function filtrarCategoria(cat) {
 }
 
 function toggleFiltros() {
-  document.getElementById("filtros").classList.toggle("hidden");
+  document.getElementById("filtros")?.classList.toggle("hidden");
 }
 
 // 📲 WHATSAPP COM NÚMERO
 function enviarWhatsApp() {
-  const numero = "351912345678"; // mete o teu
+  const numero = "351911119396"; // TEU NÚMERO ATUALIZADO
 
   const selecionados = produtos.filter(p => favoritos.includes(p.id));
 
@@ -106,7 +85,6 @@ function enviarWhatsApp() {
   }
 
   let mensagem = "Olá, quero estes produtos:%0A";
-
   selecionados.forEach(p => {
     mensagem += - ${p.nome} €${p.preco}%0A;
   });
@@ -114,6 +92,3 @@ function enviarWhatsApp() {
   const url = https://wa.me/${numero}?text=${mensagem};
   window.open(url, "_blank");
 }
-
-// iniciar
-renderProdutos();
