@@ -1,17 +1,54 @@
-let produtos = [];
+let produtos = [
+  {
+    id: 1,
+    nome: "Off-White Hoodie",
+    nome_en: "Off-White Hoodie",
+    categoria: "clothes",
+    preco: 145,
+    antigo: 550,
+    imagens: ["https://via.placeholder.com/300x300?text=Hoodie1", "https://via.placeholder.com/300x300?text=Hoodie2"]
+  },
+  {
+    id: 2,
+    nome: "Off-White Tshirt",
+    nome_en: "Off-White T-Shirt",
+    categoria: "clothes",
+    preco: 85,
+    antigo: 365,
+    imagens: ["https://via.placeholder.com/300x300?text=Tshirt1", "https://via.placeholder.com/300x300?text=Tshirt2"]
+  },
+  {
+    id: 3,
+    nome: "Nike Sneakers",
+    nome_en: "Nike Sneakers",
+    categoria: "sneakers",
+    preco: 120,
+    antigo: 200,
+    imagens: ["https://via.placeholder.com/300x300?text=Sneakers1", "https://via.placeholder.com/300x300?text=Sneakers2"]
+  },
+  {
+    id: 4,
+    nome: "Adidas Jacket",
+    nome_en: "Adidas Jacket",
+    categoria: "clothes",
+    preco: 180,
+    antigo: 350,
+    imagens: ["https://via.placeholder.com/300x300?text=Jacket1", "https://via.placeholder.com/300x300?text=Jacket2"]
+  },
+  {
+    id: 5,
+    nome: "Cap",
+    nome_en: "Cap",
+    categoria: "accessories",
+    preco: 35,
+    antigo: 70,
+    imagens: ["https://via.placeholder.com/300x300?text=Cap1", "https://via.placeholder.com/300x300?text=Cap2"]
+  }
+];
+
 let favoritos = JSON.parse(localStorage.getItem("favoritos")) || [];
 let filtroAtual = "all";
 let idiomaAtual = "pt";
-
-// Carregar produtos.json
-fetch("produtos.json")
-  .then(res => res.json())
-  .then(data => {
-    produtos = data;
-    atualizarTextoInterface();
-    renderProdutos();
-  })
-  .catch(err => console.error("Erro a carregar produtos:", err));
 
 // Renderizar produtos
 function renderProdutos() {
@@ -20,9 +57,7 @@ function renderProdutos() {
   container.innerHTML = "";
 
   let lista = produtos;
-  if (filtroAtual !== "all") {
-    lista = produtos.filter(p => p.categoria === filtroAtual);
-  }
+  if (filtroAtual !== "all") lista = produtos.filter(p => p.categoria === filtroAtual);
 
   lista.forEach(p => {
     const fav = favoritos.includes(p.id) ? "❤️" : "🤍";
@@ -43,11 +78,7 @@ function renderProdutos() {
 
 // Favoritos
 function toggleFav(id) {
-  if (favoritos.includes(id)) {
-    favoritos = favoritos.filter(f => f !== id);
-  } else {
-    favoritos.push(id);
-  }
+  favoritos = favoritos.includes(id) ? favoritos.filter(f => f !== id) : [...favoritos, id];
   localStorage.setItem("favoritos", JSON.stringify(favoritos));
   renderProdutos();
 }
@@ -55,7 +86,7 @@ function toggleFav(id) {
 // Troca de imagens
 function trocarImagem(imgElement, id) {
   const produto = produtos.find(p => p.id === id);
-  if (!produto || !produto.imagens || produto.imagens.length === 0) return;
+  if (!produto) return;
   let atual = produto.imagens.indexOf(imgElement.src);
   let proxima = (atual + 1) % produto.imagens.length;
   imgElement.src = produto.imagens[proxima];
@@ -85,39 +116,14 @@ function enviarWhatsApp() {
     const nomeProduto = idiomaAtual === "pt" ? p.nome : (p.nome_en || p.nome);
     mensagem += - ${nomeProduto} €${p.preco}%0A;
   });
-  const url = https://wa.me/${numero}?text=${mensagem};
-  window.open(url, "_blank");
+  window.open(https://wa.me/${numero}?text=${mensagem}, "_blank");
 }
 
 // Idioma
 function mudarIdioma(idioma) {
   idiomaAtual = idioma;
-  atualizarTextoInterface();
   renderProdutos();
 }
 
-function atualizarTextoInterface() {
-  const titulo = document.getElementById("loja-title");
-  const filtros = document.getElementById("filtros");
-  const whatsappBtn = document.getElementById("whatsapp");
-
-  if (idiomaAtual === "pt") {
-    titulo.textContent = "No. 483 Private Sellers - Catalogue";
-    whatsappBtn.textContent = "Enviar WhatsApp";
-    filtros.innerHTML = `
-      <button onclick="filtrarCategoria('all')">Todos</button>
-      <button onclick="filtrarCategoria('clothes')">Clothes</button>
-      <button onclick="filtrarCategoria('sneakers')">Sneakers</button>
-      <button onclick="filtrarCategoria('accessories')">Accessories</button>
-    `;
-  } else {
-    titulo.textContent = "No. 483 Private Sellers - Catalogue";
-    whatsappBtn.textContent = "Send WhatsApp";
-    filtros.innerHTML = `
-      <button onclick="filtrarCategoria('all')">All</button>
-      <button onclick="filtrarCategoria('clothes')">Clothes</button>
-      <button onclick="filtrarCategoria('sneakers')">Sneakers</button>
-      <button onclick="filtrarCategoria('accessories')">Accessories</button>
-    `;
-  }
-}
+// Iniciar
+renderProdutos();
