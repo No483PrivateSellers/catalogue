@@ -1,10 +1,10 @@
 [
   {
     "id": 1,
-    "nome": "Off-White Hoodie",
-    "categoria": "hoodie",
-    "preco": 145,
-    "antigo": 550,
-    "imagens": ["img1.jpg", "img2.jpg"]
+    "nome": "Amiri Bandana Skel Top Low Sneakers",
+    "categoria": "sneakers",
+    "preco": 370,
+    "antigo": 520,
+    "imagens": ["amiri sneaker.jpg", "img2.jpg"]
   }
 ]
