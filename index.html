@@ -8,9 +8,16 @@
 <body>
 
 <header>
+  <button onclick="toggleFiltros()">⚡ Filters</button>
   <h2>Catalogue</h2>
-  <button onclick="enviarWhatsApp()">Enviar favoritos</button>
+  <button onclick="enviarWhatsApp()">📲</button>
 </header>
+
+<div id="filtros" class="hidden">
+  <button onclick="filtrarCategoria('all')">All</button>
+  <button onclick="filtrarCategoria('hoodie')">Hoodies</button>
+  <button onclick="filtrarCategoria('tshirt')">T-Shirts</button>
+</div>
 
 <div class="grid" id="products"></div>
 
