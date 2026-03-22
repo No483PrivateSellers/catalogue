@@ -1,7 +1,8 @@
+let produtos = [];
 let favoritos = JSON.parse(localStorage.getItem("favoritos")) || [];
 let filtroAtual = "all";
-let produtos = [];
 
+// Carregar produtos.json
 fetch("produtos.json")
   .then(res => res.json())
   .then(data => {
@@ -27,10 +28,10 @@ function renderProdutos() {
       <div class="card">
         <div class="fav" onclick="toggleFav(${p.id})">${fav}</div>
         <div class="new">NEW</div>
-        <img src="${p.imagens[0] ? p.imagens[0] : 'https://via.placeholder.com/300'}" onclick="trocarImagem(this, ${p.id})">
+        <img src="${p.imagens[0]}" onclick="trocarImagem(this, ${p.id})" />
         <p>${p.nome}</p>
-        <span>€${p.preco}</span>
-        <span class="old">PVP €${p.antigo}</span>
+        <span class="price">€${p.preco}</span>
+        <span class="old">€${p.antigo}</span>
       </div>
     `;
   });
@@ -65,19 +66,15 @@ function toggleFiltros() {
 
 function enviarWhatsApp() {
   const numero = "351911119396";
-
   const selecionados = produtos.filter(p => favoritos.includes(p.id));
-
   if (selecionados.length === 0) {
     alert("Sem favoritos");
     return;
   }
-
   let mensagem = "Olá, quero estes produtos:%0A";
   selecionados.forEach(p => {
     mensagem += - ${p.nome} €${p.preco}%0A;
   });
-
   const url = https://wa.me/${numero}?text=${mensagem};
   window.open(url, "_blank");
 }
