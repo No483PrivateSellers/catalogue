@@ -1,10 +1,7 @@
-// script.js
-
 let favoritos = JSON.parse(localStorage.getItem("favoritos")) || [];
 let filtroAtual = "all";
 let produtos = [];
 
-// Carregar produtos do JSON
 fetch("produtos.json")
   .then(res => res.json())
   .then(data => {
@@ -67,7 +64,7 @@ function toggleFiltros() {
 }
 
 function enviarWhatsApp() {
-  const numero = "351911119396"; // TEU NÚMERO
+  const numero = "351911119396";
 
   const selecionados = produtos.filter(p => favoritos.includes(p.id));
 
