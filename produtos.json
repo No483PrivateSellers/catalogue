@@ -2,41 +2,46 @@
   {
     "id": 1,
     "nome": "Off-White Hoodie",
+    "nome_en": "Off-White Hoodie",
     "categoria": "clothes",
-    "preco": 145,
-    "antigo": 550,
+    "nosso_preco": 145,
+    "preco_normal_na_marca": 550,
     "imagens": ["https://via.placeholder.com/300", "https://via.placeholder.com/301"]
   },
   {
     "id": 2,
     "nome": "Off-White Tshirt",
+    "nome_en": "Off-White T-Shirt",
     "categoria": "clothes",
-    "preco": 85,
-    "antigo": 365,
+    "nosso_preco": 85,
+    "preco_normal_na_marca":550,
     "imagens": ["https://via.placeholder.com/300", "https://via.placeholder.com/302"]
   },
   {
     "id": 3,
     "nome": "Nike Sneakers",
+    "nome_en": "Nike Sneakers",
     "categoria": "sneakers",
-    "preco": 120,
-    "antigo": 200,
+    "nosso_preco": 85,
+    "preco_normal_na_marca":550,
     "imagens": ["https://via.placeholder.com/300", "https://via.placeholder.com/303"]
   },
   {
     "id": 4,
     "nome": "Adidas Jacket",
+    "nome_en": "Adidas Jacket",
     "categoria": "clothes",
-    "preco": 180,
-    "antigo": 350,
+    "nosso_preco": 85,
+    "preco_normal_na_marca":550,
     "imagens": ["https://via.placeholder.com/300", "https://via.placeholder.com/304"]
   },
   {
     "id": 5,
     "nome": "Cap",
+    "nome_en": "Cap",
     "categoria": "accessories",
-    "preco": 35,
-    "antigo": 70,
+    "nosso_preco": 85,
+    "preco_normal_na_marca":550,
     "imagens": ["https://via.placeholder.com/300", "https://via.placeholder.com/305"]
   }
 ]
