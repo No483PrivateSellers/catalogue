@@ -1,26 +1,61 @@
-<!DOCTYPE html>
-<html lang="pt">
-<head>
-  <meta charset="UTF-8">
-  <title>Catalogue</title>
-  <link rel="stylesheet" href="style.css">
-</head>
-<body>
+body {
+  font-family: -apple-system;
+  background: #f2f2f2;
+  margin: 0;
+}
 
-<header>
-  <button onclick="toggleFiltros()">⚡ Filters</button>
-  <h2>Catalogue</h2>
-  <button onclick="enviarWhatsApp()">📲</button>
-</header>
+header {
+  display: flex;
+  justify-content: space-between;
+  padding: 15px;
+  background: white;
+  position: sticky;
+  top: 0;
+}
 
-<div id="filtros" class="hidden">
-  <button onclick="filtrarCategoria('all')">All</button>
-  <button onclick="filtrarCategoria('hoodie')">Hoodies</button>
-  <button onclick="filtrarCategoria('tshirt')">T-Shirts</button>
-</div>
+.grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+  padding: 12px;
+}
 
-<div class="grid" id="products"></div>
+.card {
+  background: white;
+  border-radius: 14px;
+  padding: 10px;
+  position: relative;
+}
 
-<script src="script.js"></script>
-</body>
-</html>
+.card img {
+  width: 100%;
+  border-radius: 10px;
+}
+
+.fav {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  font-size: 20px;
+  cursor: pointer;
+}
+
+.new {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background: grey;
+  color: white;
+  padding: 4px 7px;
+  border-radius: 6px;
+  font-size: 12px;
+}
+
+.old {
+  color: red;
+  margin-left: 5px;
+}
+
+.hidden {
+  display: none;
+}
