@@ -27,6 +27,12 @@ let produtos = [
 let favoritos = JSON.parse(localStorage.getItem("favoritos")) || [];
 
 let filtroAtual = "all";
+fetch("produtos.json")
+  .then(res => res.json())
+  .then(data => {
+    produtos = data;
+    renderProdutos();
+  });
 
 function renderProdutos() {
   const container = document.getElementById("products");
