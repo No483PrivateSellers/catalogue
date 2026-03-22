@@ -2,45 +2,41 @@
   {
     "id": 1,
     "nome": "Off-White Hoodie",
-    "categoria": "hoodie",
+    "categoria": "clothes",
     "preco": 145,
     "antigo": 550,
-    "imagens": [
-      "https://via.placeholder.com/300",
-      "https://via.placeholder.com/301"
-    ]
+    "imagens": ["https://via.placeholder.com/300", "https://via.placeholder.com/301"]
   },
   {
     "id": 2,
     "nome": "Off-White Tshirt",
-    "categoria": "tshirt",
+    "categoria": "clothes",
     "preco": 85,
     "antigo": 365,
-    "imagens": [
-      "https://via.placeholder.com/300",
-      "https://via.placeholder.com/302"
-    ]
+    "imagens": ["https://via.placeholder.com/300", "https://via.placeholder.com/302"]
   },
   {
     "id": 3,
     "nome": "Nike Sneakers",
-    "categoria": "sapatos",
+    "categoria": "sneakers",
     "preco": 120,
     "antigo": 200,
-    "imagens": [
-      "https://via.placeholder.com/300",
-      "https://via.placeholder.com/303"
-    ]
+    "imagens": ["https://via.placeholder.com/300", "https://via.placeholder.com/303"]
   },
   {
     "id": 4,
     "nome": "Adidas Jacket",
-    "categoria": "casaco",
+    "categoria": "clothes",
     "preco": 180,
     "antigo": 350,
-    "imagens": [
-      "https://via.placeholder.com/300",
-      "https://via.placeholder.com/304"
-    ]
+    "imagens": ["https://via.placeholder.com/300", "https://via.placeholder.com/304"]
+  },
+  {
+    "id": 5,
+    "nome": "Cap",
+    "categoria": "accessories",
+    "preco": 35,
+    "antigo": 70,
+    "imagens": ["https://via.placeholder.com/300", "https://via.placeholder.com/305"]
   }
 ]
