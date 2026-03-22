@@ -1,23 +1,21 @@
 // script.js
 
-// 💾 carregar favoritos guardados
 let favoritos = JSON.parse(localStorage.getItem("favoritos")) || [];
 let filtroAtual = "all";
 let produtos = [];
 
-// 🚀 Carregar produtos do JSON
+// Carregar produtos do JSON
 fetch("produtos.json")
   .then(res => res.json())
   .then(data => {
     produtos = data;
-    renderProdutos(); // só renderiza depois de carregar
+    renderProdutos();
   })
   .catch(err => console.error("Erro a carregar produtos:", err));
 
-// Função para renderizar produtos
 function renderProdutos() {
   const container = document.getElementById("products");
-  if (!container) return; // evita erro se o container não existir
+  if (!container) return;
   container.innerHTML = "";
 
   let lista = produtos;
@@ -41,29 +39,24 @@ function renderProdutos() {
   });
 }
 
-// ❤️ FAVORITOS (com persistência)
 function toggleFav(id) {
   if (favoritos.includes(id)) {
     favoritos = favoritos.filter(f => f !== id);
   } else {
     favoritos.push(id);
   }
-
   localStorage.setItem("favoritos", JSON.stringify(favoritos));
   renderProdutos();
 }
 
-// 📸 SLIDER DE IMAGENS
 function trocarImagem(imgElement, id) {
   const produto = produtos.find(p => p.id === id);
   if (!produto || !produto.imagens || produto.imagens.length === 0) return;
-
   let atual = produto.imagens.indexOf(imgElement.src);
   let proxima = (atual + 1) % produto.imagens.length;
   imgElement.src = produto.imagens[proxima];
 }
 
-// 🔎 FILTROS
 function filtrarCategoria(cat) {
   filtroAtual = cat;
   renderProdutos();
@@ -73,9 +66,8 @@ function toggleFiltros() {
   document.getElementById("filtros")?.classList.toggle("hidden");
 }
 
-// 📲 WHATSAPP COM NÚMERO
 function enviarWhatsApp() {
-  const numero = "351911119396"; // TEU NÚMERO ATUALIZADO
+  const numero = "351911119396"; // TEU NÚMERO
 
   const selecionados = produtos.filter(p => favoritos.includes(p.id));
 
