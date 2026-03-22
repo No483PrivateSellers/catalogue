@@ -2,6 +2,7 @@ body {
   font-family: -apple-system, BlinkMacSystemFont, sans-serif;
   background: #f2f2f2;
   margin: 0;
+  padding: 0;
 }
 
 /* HEADER */
@@ -36,6 +37,7 @@ header button {
   padding: 10px;
   background: white;
   border-bottom: 1px solid #eee;
+  flex-wrap: wrap;
 }
 
 #filtros button {
@@ -46,11 +48,11 @@ header button {
   cursor: pointer;
 }
 
-/* GRID */
-.grid {
+/* GRID PRINCIPAL DE PRODUTOS */
+#products {
   display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 12px;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 15px;
   padding: 12px;
 }
 
@@ -61,12 +63,19 @@ header button {
   padding: 10px;
   position: relative;
   box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 /* IMAGEM */
 .card img {
   width: 100%;
+  max-width: 180px;
+  height: 180px;
+  object-fit: cover;
   border-radius: 10px;
+  cursor: pointer;
 }
 
 /* FAVORITO */
@@ -94,20 +103,36 @@ header button {
 .card p {
   margin: 10px 0 5px;
   font-weight: 500;
+  text-align: center;
 }
 
 /* PREÇOS */
-.price {
+.card span {
+  display: block;
   font-weight: bold;
+  text-align: center;
 }
 
 .old {
   color: red;
-  margin-left: 5px;
+  margin-top: 3px;
   font-size: 14px;
+  text-decoration: line-through;
 }
 
 /* ESCONDER */
 .hidden {
   display: none;
+}
+
+/* BOTÃO WHATSAPP */
+#whatsapp {
+  margin: 20px;
+  padding: 10px 20px;
+  font-size: 16px;
+  cursor: pointer;
+  border: none;
+  background: #25d366;
+  color: white;
+  border-radius: 8px;
 }
