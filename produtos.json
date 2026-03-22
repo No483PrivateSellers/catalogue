@@ -5,6 +5,6 @@
     "categoria": "sneakers",
     "preco": 370,
     "antigo": 520,
-    "imagens": ["amirisneakers.jpg", "img2.jpg"]
+    "imagens":"https://via.placeholder.com/150"
   }
 ]
