@@ -2,30 +2,34 @@
 <html lang="pt">
 <head>
   <meta charset="UTF-8">
-  <title>Catalogue</title>
-
-  <!-- LIGAÇÃO AO CSS -->
-  <link rel="stylesheet" href="style.css">
-  <script src="script.js"></script>
+  <title>Loja</title>
+  <style>
+    .card { border: 1px solid #ccc; padding: 10px; margin: 10px; display: inline-block; width: 200px; text-align: center; }
+    .fav { cursor: pointer; font-size: 20px; }
+    .old { text-decoration: line-through; color: gray; display: block; }
+    img { width: 150px; height: 150px; cursor: pointer; }
+    #filters button { margin: 0 5px; }
+  </style>
 </head>
-
 <body>
 
-<header>
-  <button onclick="toggleFiltros()">⚡ Filters</button>
-  <h2>Catalogue</h2>
-  <button onclick="enviarWhatsApp()">📲</button>
-</header>
+<h1>Produtos</h1>
 
-<div id="filtros" class="hidden">
-  <button onclick="filtrarCategoria('all')">All</button>
+<!-- Botões de filtro -->
+<div id="filters">
+  <button onclick="filtrarCategoria('all')">Todos</button>
   <button onclick="filtrarCategoria('hoodie')">Hoodies</button>
   <button onclick="filtrarCategoria('tshirt')">T-Shirts</button>
+  <button onclick="filtrarCategoria('sapatos')">Sapatos</button>
+  <button onclick="filtrarCategoria('casaco')">Casacos</button>
 </div>
 
-<div class="grid" id="products"></div>
+<!-- Container de produtos -->
+<div id="products"></div>
+
+<!-- Botão WhatsApp -->
+<button onclick="enviarWhatsApp()">Enviar WhatsApp</button>
 
 <script src="script.js"></script>
-
 </body>
 </html>
