@@ -1,7 +1,7 @@
 let produtos = [];
 let favoritos = JSON.parse(localStorage.getItem("favoritos")) || [];
 let filtroAtual = "all";
-let idiomaAtual = "pt"; // padrão PT
+let idiomaAtual = "pt";
 
 // Carregar produtos.json
 fetch("produtos.json")
@@ -102,7 +102,7 @@ function atualizarTextoInterface() {
   const whatsappBtn = document.getElementById("whatsapp");
 
   if (idiomaAtual === "pt") {
-    titulo.textContent = "Minha Loja";
+    titulo.textContent = "No. 483 Private Sellers - Catalogue";
     whatsappBtn.textContent = "Enviar WhatsApp";
     filtros.innerHTML = `
       <button onclick="filtrarCategoria('all')">Todos</button>
@@ -111,7 +111,7 @@ function atualizarTextoInterface() {
       <button onclick="filtrarCategoria('accessories')">Accessories</button>
     `;
   } else {
-    titulo.textContent = "My Store";
+    titulo.textContent = "No. 483 Private Sellers - Catalogue";
     whatsappBtn.textContent = "Send WhatsApp";
     filtros.innerHTML = `
       <button onclick="filtrarCategoria('all')">All</button>
